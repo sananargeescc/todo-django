@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+<!--  .ash{-->
+<!--  border:1px solid #adb5bd;-->
+<!--  padding:25px;-->
+<!--  border-radius: 80px 80px 80px 80px;-->
+<!--  width:600px;-->
+<!--  margin-bottom:10px;-->
+
+<!--  }-->
+  .head{
+ padding:22px;
+  border-radius: 40px 40px 40px 40px;
+  margin-bottom:50px
+   }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th{
+
+  padding:20px;
+  }
+td{
+ padding:10px;
+ text-align:center;
+ }
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+<div class="head" style="background-color:#F08080; width:100%; text-align:center">
+    <h1>todo-view</h1>
+      </div>
+<div class="col-lg-12 grid-margin stretch-card">
+<div class="card">
+  <div class="card-body">
+      <h4 class="card-title">to-do View:</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped" >
+     <thead>
+                        <tr>
+                            <th>sl.no</th>
+                            <th>title</th>
+                            <th>date</th>
+                            <th>update</th>
+                        <th>Delete</th>
+  </tr>
+                      </thead>
+                      <tbody>
+{% for i in data %}
+
+<tr>
+     <td>{{forloop.counter}}</td>
+ <td>{{i.title}}</td>
+    <td>{{i.date}}</td>
+    <td><a href="{% url 'update' i.id %}">update</a></td>
+     <td><a href="{% url 'delete' i.id %}">delete</a></td>
+
+</tr>
+
+
+
+       </td>
+                      </tr>
+{% endfor %}
+   </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  </div>
+</div>
+</body>
+</html>
